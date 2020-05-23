@@ -1,3 +1,4 @@
 import NameForm from './NameForm'
+import EmailForm from './EmailForm'
 
-export { NameForm }
+export { NameForm, EmailForm }
