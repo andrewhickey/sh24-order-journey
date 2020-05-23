@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { NameForm } from '../../components'
 
 function NamePage() {
   return (
     <>
-      <div className="text-xl">NAME PAGE</div>
+      <NameForm />
       <Link to="email">Next</Link>
     </>
   )
