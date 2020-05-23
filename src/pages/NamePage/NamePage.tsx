@@ -5,6 +5,7 @@ import { NameForm } from '../../components'
 function NamePage() {
   return (
     <>
+      <h1>What is your name</h1>
       <NameForm />
       <Link to="email">Next</Link>
     </>
