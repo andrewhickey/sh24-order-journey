@@ -35,7 +35,7 @@ function NameForm() {
             render={({ field, meta }: any) => (
               <div className="mb-6">
                 <label className="block text-gray-700 text-sm font-bold">
-                  Password
+                  Name
                   <input
                     type="text"
                     {...field}
