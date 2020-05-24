@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Router } from '@reach/router'
 import { EmailPage, NamePage, ServicePage, SummaryPage } from './pages'
+import { UserInput } from './types'
 
 function App() {
   // in a real app this would probably be replaced by some sort of store, redux/mobx etc
-  const [userInput, setUserInput] = useState({
+  const [userInput, setUserInput] = useState<UserInput>({
     name: '',
     email: '',
     service: '',
@@ -30,7 +31,7 @@ function App() {
         onSubmit={({ service }) => setUserInput({ ...userInput, service })}
       />
 
-      <SummaryPage path="/summary" />
+      <SummaryPage path="/summary" userInput={userInput} />
     </Router>
   )
 }
