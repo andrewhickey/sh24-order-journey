@@ -1,6 +1,6 @@
+import { Form, Formik } from 'formik'
 import React, { useCallback } from 'react'
 import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
 import Field from '../Field'
 
 export type NameFormValues = {

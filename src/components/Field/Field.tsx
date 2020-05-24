@@ -1,6 +1,6 @@
-import React, { HTMLProps } from 'react'
 import classNames from 'classnames'
 import { Field as FormikField } from 'formik'
+import React, { HTMLProps } from 'react'
 
 type FieldProps = {
   label: string
@@ -8,10 +8,11 @@ type FieldProps = {
 
 function Field({
   label,
+  name,
   ...inputProps
 }: FieldProps & HTMLProps<HTMLInputElement>) {
   return (
-    <FormikField name="name">
+    <FormikField name={name}>
       {({ field, meta }: any) => {
         const hasError = meta.touched && meta.error
 
@@ -20,6 +21,7 @@ function Field({
             <label className="block text-sm font-bold">
               {label}
               <input
+                name={name}
                 {...inputProps}
                 {...field}
                 className={classNames(
