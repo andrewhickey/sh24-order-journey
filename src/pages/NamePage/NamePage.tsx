@@ -1,13 +1,58 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { NameForm } from '../../components'
+import React, { useCallback } from 'react'
+import { Form, Formik } from 'formik'
+import { Field } from '../../components'
+import * as Yup from 'yup'
+import { useNavigate } from '@reach/router'
 
-function NamePage() {
+export type NameFormValues = {
+  name: string
+}
+
+const defaultValues: NameFormValues = { name: '' }
+
+const NameFormSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, 'Too short')
+    .max(25, 'Too long')
+    .required('We need this info'),
+})
+
+type NamePageProps = {
+  path: string
+  initialValues: NameFormValues
+  onSubmit: (formValues: NameFormValues) => void
+}
+
+function NamePage({ initialValues, onSubmit }: NamePageProps) {
+  const navigate = useNavigate()
+
+  const handleSubmit = useCallback(
+    async (values, actions) => {
+      actions.setSubmitting(true)
+      await onSubmit(values)
+      actions.setSubmitting(false)
+      navigate('email')
+    },
+    [onSubmit, navigate]
+  )
+
   return (
     <>
       <h1 className="text-xl mb-6">What is your name?</h1>
-      <NameForm />
-      <Link to="email">Next</Link>
+      <Formik
+        initialValues={initialValues || defaultValues}
+        validationSchema={NameFormSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isValid }) => (
+          <Form>
+            <Field label="Name" name="name" type="text" />
+            <button type="submit" disabled={!isValid}>
+              Next
+            </button>
+          </Form>
+        )}
+      </Formik>
     </>
   )
 }

@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-function SummaryPage() {
+type SummaryPageProps = {
+  path: string
+}
+function SummaryPage(props: SummaryPageProps) {
   return (
     <>
       <div>SUMMARY PAGE</div>
-      <Link to="/service">Prev</Link>
     </>
   )
 }

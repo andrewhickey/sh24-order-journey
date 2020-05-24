@@ -1,27 +1,36 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Router } from '@reach/router'
 import { EmailPage, NamePage, ServicePage, SummaryPage } from './pages'
 
 function App() {
+  // in a real app this would probably be replaced by some sort of store, redux/mobx etc
+  const [userInput, setUserInput] = useState({
+    name: '',
+    email: '',
+    service: '',
+  })
+
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <NamePage />
-        </Route>
+      <NamePage
+        path="/"
+        initialValues={{ name: userInput.name }}
+        onSubmit={({ name }) => setUserInput({ ...userInput, name })}
+      />
 
-        <Route exact path="/email">
-          <EmailPage />
-        </Route>
+      <EmailPage
+        path="email"
+        initialValues={{ email: userInput.email }}
+        onSubmit={({ email }) => setUserInput({ ...userInput, email })}
+      />
 
-        <Route exact path="/service">
-          <ServicePage />
-        </Route>
+      <ServicePage
+        path="service"
+        initialValues={{ service: userInput.service }}
+        onSubmit={({ service }) => setUserInput({ ...userInput, service })}
+      />
 
-        <Route exact path="/summary">
-          <SummaryPage />
-        </Route>
-      </Switch>
+      <SummaryPage path="/summary" />
     </Router>
   )
 }
