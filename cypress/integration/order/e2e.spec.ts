@@ -5,15 +5,13 @@ context('Actions', () => {
     cy.visit('/')
   })
 
-  // https://on.cypress.io/interacting-with-elements
-
   it('goes through the whole flow successfully', () => {
     const user = {
       name: 'Andrew',
       email: 'andrewhickey@live.co.uk',
       service: 'Contraception',
     }
-    // https://on.cypress.io/type
+
     cy.contains('Name')
       .find('input')
       .type(user.name)
