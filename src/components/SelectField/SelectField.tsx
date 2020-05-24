@@ -13,29 +13,30 @@ function SelectField({ label, name, options }: SelectFieldProps) {
 
   const { value } = meta
   const { setValue } = helpers
-  console.log('VALUE', value)
 
   const isSelected = (v: any) => v === value
   const hasError = meta.touched && meta.error
 
   return (
     <div className="mb-6">
-      <div className="text-sm font-bold">{label}</div>
-      <div className="flex space-x-4">
-        {options.map((option) => (
-          <button
-            type="button"
-            key={option.value}
-            className={classNames('py-3 px-5 font-bold', {
-              'bg-white': isSelected(option.value),
-              'bg-indigo-800': !isSelected(option.value),
-              'text-indigo-900': isSelected(option.value),
-            })}
-            onClick={() => setValue(option.value)}
-          >
-            {option.label}
-          </button>
-        ))}
+      <div className="text-sm font-bold">
+        {label}
+        <div className="flex space-x-4">
+          {options.map((option) => (
+            <button
+              type="button"
+              key={option.value}
+              className={classNames('py-3 px-5 font-bold', {
+                'bg-white': isSelected(option.value),
+                'bg-indigo-800': !isSelected(option.value),
+                'text-indigo-900': isSelected(option.value),
+              })}
+              onClick={() => setValue(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {hasError && <p className="text-red-500 text-xs italic">{meta.error}</p>}
