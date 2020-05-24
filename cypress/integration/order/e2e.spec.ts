@@ -2,32 +2,43 @@
 
 context('Actions', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
   })
 
   // https://on.cypress.io/interacting-with-elements
 
   it('goes through the whole flow successfully', () => {
+    const user = {
+      name: 'Andrew',
+      email: 'andrewhickey@live.co.uk',
+      service: 'Contraception',
+    }
     // https://on.cypress.io/type
     cy.contains('Name')
       .find('input')
-      .type('Andrew')
-      .should('have.value', 'Andrew')
+      .type(user.name)
+      .should('have.value', user.name)
     cy.contains('Next').click()
 
     cy.location('pathname').should('include', 'email')
     cy.contains('Email')
       .find('input')
-      .type('andrewhickey@live.co.uk')
-      .should('have.value', 'andrewhickey@live.co.uk')
+      .type(user.email)
+      .should('have.value', user.email)
     cy.contains('Next').click()
 
     cy.location('pathname').should('include', 'service')
-    cy.contains('Service').contains('Contraception').click()
-    // check for selected
+    cy.contains('Service').contains(user.service).click()
+    // checking for this class is not ideal, could set up visual snapshotting
+    cy.contains('Service')
+      .contains(user.service)
+      .should('have.class', 'bg-white')
+
     cy.contains('Next').click()
 
     cy.location('pathname').should('include', 'summary')
-    // check for correct values listed
+    cy.contains('Name:').should('contain', user.name)
+    cy.contains('E-Mail:').should('contain', user.email)
+    cy.contains('Service:').should('contain', user.service)
   })
 })
