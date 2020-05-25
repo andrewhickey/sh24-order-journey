@@ -12,8 +12,8 @@ function App() {
   })
 
   return (
-    <div className="flex justify-center">
-      <div className="flex-1 max-w-2xl">
+    <div className="flex justify-center items-center h-screen">
+      <div className="flex-1 max-w-2xl mx-4 my-8 text-center md:text-left">
         <Router>
           <NamePage
             path="/"

@@ -56,9 +56,9 @@ function EmailPage({ initialValues, onSubmit }: EmailPageProps) {
                   navigate('/')
                 }}
               >
-                Back
+                {'<'} Back
               </button>
-              <button type="submit">Next</button>
+              <button type="submit">Next {'>'}</button>
             </div>
           </Form>
         )}

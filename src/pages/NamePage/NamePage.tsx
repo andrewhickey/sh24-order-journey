@@ -48,7 +48,7 @@ function NamePage({ initialValues, onSubmit }: NamePageProps) {
           <Form>
             <Field label="Name" name="name" type="text" />
             <div className="flex justify-end text-red-300  mt-6">
-              <button type="submit">Next</button>
+              <button type="submit">Next {'>'}</button>
             </div>
           </Form>
         )}

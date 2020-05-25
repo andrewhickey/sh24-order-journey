@@ -32,7 +32,7 @@ function SummaryPage({ userInput }: SummaryPageProps) {
       </div>
       <div className="flex text-red-300 mt-6">
         <Link to="/service" className="self-start">
-          Prev
+          {'<'} Prev
         </Link>
       </div>
     </>

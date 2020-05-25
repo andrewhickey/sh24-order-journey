@@ -62,10 +62,10 @@ function ServicePage({ initialValues, onSubmit }: ServicePageProps) {
                   navigate('email')
                 }}
               >
-                Back
+                {'<'} Back
               </button>
               <button type="submit" disabled={!isValid}>
-                Next
+                Next {'>'}
               </button>
             </div>
           </Form>
