@@ -21,7 +21,7 @@ function SelectField({ label, name, options }: SelectFieldProps) {
     <div className="mb-6">
       <div className="text-sm font-bold">
         {label}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 mt-2">
           {options.map((option) => (
             <button
               type="button"
