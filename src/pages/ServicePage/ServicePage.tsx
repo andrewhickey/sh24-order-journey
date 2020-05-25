@@ -52,20 +52,22 @@ function ServicePage({ initialValues, onSubmit }: ServicePageProps) {
                 { label: 'Other', value: 'Other' },
               ]}
             />
-            <button
-              type="button"
-              onClick={async () => {
-                setSubmitting(true)
-                await onSubmit(values)
-                setSubmitting(false)
-                navigate('email')
-              }}
-            >
-              Back
-            </button>
-            <button type="submit" disabled={!isValid}>
-              Next
-            </button>
+            <div className="flex justify-between text-red-300  mt-6">
+              <button
+                type="button"
+                onClick={async () => {
+                  setSubmitting(true)
+                  await onSubmit(values)
+                  setSubmitting(false)
+                  navigate('email')
+                }}
+              >
+                Back
+              </button>
+              <button type="submit" disabled={!isValid}>
+                Next
+              </button>
+            </div>
           </Form>
         )}
       </Formik>

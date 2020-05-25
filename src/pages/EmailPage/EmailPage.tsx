@@ -46,20 +46,20 @@ function EmailPage({ initialValues, onSubmit }: EmailPageProps) {
         {({ values, setSubmitting, isValid }) => (
           <Form>
             <Field label="Email" name="email" type="text" />
-            <button
-              type="button"
-              onClick={async () => {
-                setSubmitting(true)
-                await onSubmit(values)
-                setSubmitting(false)
-                navigate('/')
-              }}
-            >
-              Back
-            </button>
-            <button type="submit" disabled={!isValid}>
-              Next
-            </button>
+            <div className="flex justify-between text-red-300  mt-6">
+              <button
+                type="button"
+                onClick={async () => {
+                  setSubmitting(true)
+                  await onSubmit(values)
+                  setSubmitting(false)
+                  navigate('/')
+                }}
+              >
+                Back
+              </button>
+              <button type="submit">Next</button>
+            </div>
           </Form>
         )}
       </Formik>

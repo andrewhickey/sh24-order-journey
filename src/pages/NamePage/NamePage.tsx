@@ -47,9 +47,9 @@ function NamePage({ initialValues, onSubmit }: NamePageProps) {
         {({ isValid }) => (
           <Form>
             <Field label="Name" name="name" type="text" />
-            <button type="submit" disabled={!isValid}>
-              Next
-            </button>
+            <div className="flex justify-end text-red-300  mt-6">
+              <button type="submit">Next</button>
+            </div>
           </Form>
         )}
       </Formik>
