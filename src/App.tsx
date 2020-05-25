@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Router } from '@reach/router'
+import * as Yup from 'yup'
 import { EmailPage, NamePage, ServicePage, SummaryPage } from './pages'
 import { UserInput } from './types'
+import { validateEmail, validateName, validateService } from './utils'
+
+const UserInputSchema = Yup.object().shape({
+  name: validateName,
+  email: validateEmail,
+  service: validateService,
+})
 
 function App() {
   // in a real app this would probably be replaced by some sort of store, redux/mobx etc
@@ -11,9 +19,13 @@ function App() {
     service: '',
   })
 
+  const isValid = useMemo(() => {
+    return UserInputSchema.isValidSync(userInput)
+  }, [userInput])
+
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="flex-1 max-w-2xl mx-4 my-8 text-center md:text-left">
+      <div className="flex-1 max-w-2xl mx-4 my-8">
         <Router>
           <NamePage
             path="/"
@@ -33,7 +45,7 @@ function App() {
             onSubmit={({ service }) => setUserInput({ ...userInput, service })}
           />
 
-          <SummaryPage path="/summary" userInput={userInput} />
+          <SummaryPage path="summary" userInput={userInput} isValid={isValid} />
         </Router>
       </div>
     </div>

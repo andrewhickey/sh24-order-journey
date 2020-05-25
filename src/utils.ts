@@ -7,7 +7,7 @@ const validateName = Yup.string()
 
 const validateEmail = Yup.string()
   .email('Must be a valid email')
-  .required('We need this info')
+  .required('Please enter your e-mail address')
 
 const validateService = Yup.string().required('Choose one')
 
