@@ -9,6 +9,6 @@ const validateEmail = Yup.string()
   .email('Must be a valid email')
   .required('Please enter your e-mail address')
 
-const validateService = Yup.string().required('Choose one')
+const validateService = Yup.string().required('Please choose a service')
 
 export { validateName, validateEmail, validateService }

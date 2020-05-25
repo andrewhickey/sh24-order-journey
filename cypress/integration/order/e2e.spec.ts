@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
-context('Actions', () => {
+// this test is probably the only one that wouldn't stub the back end in an actual app
+context('E2E', () => {
   beforeEach(() => {
     cy.visit('/')
   })
@@ -27,7 +28,7 @@ context('Actions', () => {
 
     cy.location('pathname').should('include', 'service')
     cy.contains('Service').contains(user.service).click()
-    // checking for this class is not ideal, could set up visual snapshotting
+    // checking for this class is not ideal, could set up visual snapshotting given more time
     cy.contains('Service')
       .contains(user.service)
       .should('have.class', 'bg-white')
