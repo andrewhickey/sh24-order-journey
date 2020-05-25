@@ -35,7 +35,7 @@ function ServicePage({ initialValues, onSubmit }: ServicePageProps) {
 
   return (
     <>
-      <h1 className="text-xl mb-6">What is your e-mail?</h1>
+      <h1 className="text-xl font-bold mb-6">What is your e-mail?</h1>
       <Formik
         initialValues={initialValues || defaultValues}
         validationSchema={ServiceFormSchema}

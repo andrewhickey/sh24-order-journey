@@ -38,7 +38,7 @@ function NamePage({ initialValues, onSubmit }: NamePageProps) {
 
   return (
     <>
-      <h1 className="text-xl mb-6">What is your name?</h1>
+      <h1 className="text-xl font-bold mb-6">What is your name?</h1>
       <Formik
         initialValues={initialValues || defaultValues}
         validationSchema={NameFormSchema}
