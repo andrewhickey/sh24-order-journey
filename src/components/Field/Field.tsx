@@ -29,9 +29,9 @@ function Field({
                   { 'border-red-500': hasError }
                 )}
               />
-              {hasError && (
-                <p className="text-red-500 text-xs italic">{meta.error}</p>
-              )}
+              <p className="text-red-500 text-xs italic">
+                {hasError && meta.error} &nbsp;
+              </p>
             </label>
           </div>
         )

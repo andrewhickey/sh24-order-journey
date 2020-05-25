@@ -39,7 +39,9 @@ function SelectField({ label, name, options }: SelectFieldProps) {
         </div>
       </div>
 
-      {hasError && <p className="text-red-500 text-xs italic">{meta.error}</p>}
+      <p className="text-red-500 text-xs italic">
+        {hasError && meta.error} &nbsp;
+      </p>
     </div>
   )
 }
