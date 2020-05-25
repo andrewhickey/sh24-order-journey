@@ -12,27 +12,31 @@ function App() {
   })
 
   return (
-    <Router>
-      <NamePage
-        path="/"
-        initialValues={{ name: userInput.name }}
-        onSubmit={({ name }) => setUserInput({ ...userInput, name })}
-      />
+    <div className="flex justify-center">
+      <div className="flex-1 max-w-2xl">
+        <Router>
+          <NamePage
+            path="/"
+            initialValues={{ name: userInput.name }}
+            onSubmit={({ name }) => setUserInput({ ...userInput, name })}
+          />
 
-      <EmailPage
-        path="email"
-        initialValues={{ email: userInput.email }}
-        onSubmit={({ email }) => setUserInput({ ...userInput, email })}
-      />
+          <EmailPage
+            path="email"
+            initialValues={{ email: userInput.email }}
+            onSubmit={({ email }) => setUserInput({ ...userInput, email })}
+          />
 
-      <ServicePage
-        path="service"
-        initialValues={{ service: userInput.service }}
-        onSubmit={({ service }) => setUserInput({ ...userInput, service })}
-      />
+          <ServicePage
+            path="service"
+            initialValues={{ service: userInput.service }}
+            onSubmit={({ service }) => setUserInput({ ...userInput, service })}
+          />
 
-      <SummaryPage path="/summary" userInput={userInput} />
-    </Router>
+          <SummaryPage path="/summary" userInput={userInput} />
+        </Router>
+      </div>
+    </div>
   )
 }
 

@@ -15,7 +15,9 @@ function SummaryPage({ userInput }: SummaryPageProps) {
         <div>E-Mail: {userInput.email}</div>
         <div>Service: {userInput.service}</div>
       </div>
-      <Link to="/service">Prev</Link>
+      <div className="">
+        <Link to="/service">Prev</Link>
+      </div>
     </>
   )
 }
