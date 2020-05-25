@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="flex-1 max-w-2xl mx-4 my-8">
+      <main role="main" className="flex-1 max-w-2xl mx-4 my-8">
         <Router>
           <NamePage
             path="/"
@@ -47,7 +47,7 @@ function App() {
 
           <SummaryPage path="summary" userInput={userInput} isValid={isValid} />
         </Router>
-      </div>
+      </main>
     </div>
   )
 }

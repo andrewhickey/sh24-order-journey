@@ -90,6 +90,7 @@
     "husky": "^4.2.5",
     "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
+    "react-axe": "^3.4.1",
     "tailwindcss": "^1.4.6"
   },
   "eslintConfig": {
