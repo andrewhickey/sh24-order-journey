@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running and testing
 
-In the project directory, you can run:
+Firstly in the project directory, run `npm install` then, you can run:
 
 ### `npm start`
 
@@ -14,7 +14,9 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches Cypress and executes the test suite in headless mode
+Ensure that a local server is running with `npm start`
+
+Launches Cypress and executes the test suite against the local server in headless mode
 See [https://www.cypress.io/](https://www.cypress.io/) for more information
 
 ### `npm run cypress:open`
