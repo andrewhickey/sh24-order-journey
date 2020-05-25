@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import { Field } from '../../components'
 import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { validateName } from '../../utils'
 
 export type NameFormValues = {
   name: string
@@ -11,10 +12,7 @@ export type NameFormValues = {
 const defaultValues: NameFormValues = { name: '' }
 
 const NameFormSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too short')
-    .max(25, 'Too long')
-    .required('We need this info'),
+  name: validateName,
 })
 
 type NamePageProps = {

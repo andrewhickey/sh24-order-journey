@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import { SelectField } from '../../components'
 import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { validateService } from '../../utils'
 
 export type ServiceFormValues = {
   service: string
@@ -11,7 +12,7 @@ export type ServiceFormValues = {
 const defaultValues: ServiceFormValues = { service: '' }
 
 const ServiceFormSchema = Yup.object().shape({
-  service: Yup.string().required('Choose one'),
+  service: validateService,
 })
 
 type ServicePageProps = {

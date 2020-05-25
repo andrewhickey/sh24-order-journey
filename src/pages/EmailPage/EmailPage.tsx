@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import { Field } from '../../components'
 import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { validateEmail } from '../../utils'
 
 export type EmailFormValues = {
   email: string
@@ -11,9 +12,7 @@ export type EmailFormValues = {
 const defaultValues: EmailFormValues = { email: '' }
 
 const EmailFormSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Must be a valid email')
-    .required('We need this info'),
+  email: validateEmail,
 })
 
 type EmailPageProps = {
