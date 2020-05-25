@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react'
-import { Form, Formik } from 'formik'
-import { SelectField } from '../../components'
-import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { Form, Formik } from 'formik'
+import React, { useCallback } from 'react'
+import * as Yup from 'yup'
+import { SelectField } from '../../components'
 import { validateService } from '../../utils'
 
 export type ServiceFormValues = {
@@ -42,7 +42,7 @@ function ServicePage({ initialValues, onSubmit }: ServicePageProps) {
         validationSchema={ServiceFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ isValid, setSubmitting, values }) => (
+        {({ setSubmitting, values }) => (
           <Form>
             <SelectField
               label="Service"
@@ -65,9 +65,7 @@ function ServicePage({ initialValues, onSubmit }: ServicePageProps) {
               >
                 {'<'} Back
               </button>
-              <button type="submit" disabled={!isValid}>
-                Next {'>'}
-              </button>
+              <button type="submit">Next {'>'}</button>
             </div>
           </Form>
         )}

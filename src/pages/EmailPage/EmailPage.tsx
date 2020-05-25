@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react'
-import { Form, Formik } from 'formik'
-import { Field } from '../../components'
-import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { Form, Formik } from 'formik'
+import React, { useCallback } from 'react'
+import * as Yup from 'yup'
+import { Field } from '../../components'
 import { validateEmail } from '../../utils'
 
 export type EmailFormValues = {
@@ -42,7 +42,7 @@ function EmailPage({ initialValues, onSubmit }: EmailPageProps) {
         validationSchema={EmailFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, setSubmitting, isValid }) => (
+        {({ values, setSubmitting }) => (
           <Form>
             <Field label="Email" name="email" type="text" />
             <div className="flex justify-between text-red-300  mt-6">

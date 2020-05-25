@@ -1,7 +1,6 @@
+import { Link, Redirect } from '@reach/router'
 import React from 'react'
-import { Link } from '@reach/router'
 import { UserInput } from '../../types'
-import { Redirect } from '@reach/router'
 
 type SummaryPageProps = {
   path: string

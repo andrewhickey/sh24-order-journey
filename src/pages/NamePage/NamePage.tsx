@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react'
-import { Form, Formik } from 'formik'
-import { Field } from '../../components'
-import * as Yup from 'yup'
 import { useNavigate } from '@reach/router'
+import { Form, Formik } from 'formik'
+import React, { useCallback } from 'react'
+import * as Yup from 'yup'
+import { Field } from '../../components'
 import { validateName } from '../../utils'
 
 export type NameFormValues = {
@@ -42,7 +42,7 @@ function NamePage({ initialValues, onSubmit }: NamePageProps) {
         validationSchema={NameFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ isValid }) => (
+        {() => (
           <Form>
             <Field label="Name" name="name" type="text" />
             <div className="flex justify-end text-red-300  mt-6">
